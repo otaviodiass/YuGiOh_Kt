@@ -1,0 +1,12 @@
+Jogo/
+|-- src/
+|   |-- main/
+|       |-- kotlin/
+|           |-- jogocartas/
+|               |-- Carta.kt
+|               |-- cartas.csv
+|               |-- Jogador.kt
+|               |-- LeitorCartasCSV.kt
+|       |-- Main.kt
+|-- resources/
+
