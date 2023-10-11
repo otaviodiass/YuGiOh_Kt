@@ -1,16 +1,18 @@
 package jogocartas
 
+// A classe Carta representa uma carta do jogo Yu-Gi-Oh!
 class Carta(
-    val nome: String,
-    val descricao: String,
-    var defesa: Int,
-    var ataque: Int,
-    val tipo: String
+    val nome: String, // O nome da carta
+    val descricao: String, // A descrição da carta
+    var defesa: Int, // A pontuação de defesa da carta
+    var ataque: Int, // A pontuação de ataque da carta
+    val tipo: String // O tipo da carta, que pode ser "monstro" ou "equipamento"
 ) {
-    var estado: String? = if (tipo == "monstro") "ataque" else null
-    val ataqueOriginal: Int = ataque
-    val defesaOriginal: Int = defesa
+    var estado: String? = if (tipo == "monstro") "ataque" else null // O estado da carta, que pode ser "ataque" ou "defesa"
+    val ataqueOriginal: Int = ataque // A pontuação de ataque original da carta
+    val defesaOriginal: Int = defesa // A pontuação de defesa original da carta
 
+    // Método para calcular o dano com base no estado da carta
     fun calcularDano(): Int {
         return when (estado) {
             "ataque" -> ataque
@@ -19,6 +21,7 @@ class Carta(
         }
     }
 
+    // Método para alterar o estado da carta
     fun alterarEstado(novoEstado: String) {
         if (tipo == "monstro") {
             when (novoEstado) {
@@ -32,6 +35,7 @@ class Carta(
         }
     }
 
+    // Método para receber dano quando a carta está em estado de ataque
     fun receberDano(dano: Int) {
         if (tipo == "monstro" && estado == "ataque") {
             defesa -= dano
