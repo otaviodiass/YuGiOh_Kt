@@ -3,13 +3,16 @@ package jogocartas
 import java.io.File
 
 
+// A classe LeitorCartasCSV é responsável por ler as cartas do jogo a partir de um arquivo CSV
 class LeitorCartasCSV(caminhoArquivo: String) {
     private val cartas: MutableList<Carta> = mutableListOf()
 
+    // Inicializa o leitor lendo as cartas do arquivo CSV
     init {
         lerCartas(caminhoArquivo)
     }
 
+    // Método para ler as cartas do arquivo CSV
     private fun lerCartas(caminhoArquivo: String) {
         val linhas = File(caminhoArquivo).readLines()
         for (linha in linhas) {
@@ -26,11 +29,13 @@ class LeitorCartasCSV(caminhoArquivo: String) {
         }
     }
 
+    // Método para pegar cartas aleatórias da lista de cartas
     fun pegarCartasAleatorias(quantidade: Int): List<Carta> {
         val cartasEmbaralhadas = cartas.shuffled().take(quantidade)
         return cartasEmbaralhadas
     }
 
+    // Verifica se a lista de cartas está vazia
     fun cartasEstaoVazias(): Boolean {
         return cartas.isEmpty()
     }
