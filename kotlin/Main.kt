@@ -7,13 +7,15 @@ fun main() {
     jogo.iniciarJogo()
 }
 
+// Classe principal do programa que inicia e controla o jogo
 class JogoYuGiOh {
     private val jogador1 = Jogador("Jogador 1")
     private val jogador2 = Jogador("Jogador 2")
     private val maxRodadas = 10
     private var turno = 1
-    private val leitorCartas = LeitorCartasCSV("C:\\Users\\wesle\\PycharmProjects\\YugiOh\\cartas.csv")
+    private val leitorCartas = LeitorCartasCSV("C:COLOCAR CAMINHO DO DIRETÓRIO DO CARTAS.CSV")
 
+    // Método para iniciar o jogo
     fun iniciarJogo() {
         for (rodada in 1..maxRodadas) {
             println("\nRodada $rodada")
@@ -128,7 +130,7 @@ class JogoYuGiOh {
                             if (alvo != null) {
                                 alvo.defesa -= dano
                                 if (alvo.defesa < 0) {
-                                    jogadorAtual.vida -= abs(alvo.defesa)
+                                    oponente.vida -= abs(alvo.defesa)
                                     alvo.defesa = 0
                                 }
                             }
