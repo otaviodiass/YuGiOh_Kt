@@ -9,8 +9,8 @@ fun main() {
 
 // Classe principal do programa que inicia e controla o jogo
 class JogoYuGiOh {
-    private val jogador1 = Jogador("Jogador 1")
-    private val jogador2 = Jogador("Jogador 2")
+    private val jogador1 = Jogador("WESLEY ASSIS")
+    private val jogador2 = Jogador("OTÁVIO HENRIQUE")
     private val maxRodadas = 10
     private var turno = 1
     private val leitorCartas = LeitorCartasCSV("C:COLOCAR CAMINHO DO DIRETÓRIO DO CARTAS.CSV")
