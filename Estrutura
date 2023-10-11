@@ -7,6 +7,6 @@ Jogo/
 |               |-- cartas.csv
 |               |-- Jogador.kt
 |               |-- LeitorCartasCSV.kt
-|       |-- Main.kt
+|       |-- JogoYuGiOh.kt
 |-- resources/
 
