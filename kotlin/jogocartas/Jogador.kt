@@ -1,17 +1,19 @@
 package jogocartas
 
 import java.util.ArrayList
-
+// A classe Jogador representa um jogador do jogo Yu-Gi-Oh!
 class Jogador(nome: String) {
-    val nome: String = nome
-    var vida: Int = 10000
-    val tabuleiro: MutableList<Carta> = ArrayList()
-    val mao: MutableList<Carta> = ArrayList()
+    val nome: String = nome // O nome do jogador
+    var vida: Int = 10000 // A vida do jogador
+    val tabuleiro: MutableList<Carta> = ArrayList() // O tabuleiro do jogador, onde as cartas são posicionadas
+    val mao: MutableList<Carta> = ArrayList() // A mão do jogador, onde as cartas são mantidas
 
+    // Verifica se há espaço no tabuleiro para posicionar um novo monstro
     fun temEspacoNoTabuleiro(): Boolean {
         return tabuleiro.size < 5
     }
 
+    // Método para posicionar um monstro no tabuleiro
     fun posicionarMonstro(cartaId: Int, estado: String): Boolean {
         if (temEspacoNoTabuleiro()) {
             if (cartaId in 1..mao.size) {
@@ -35,6 +37,7 @@ class Jogador(nome: String) {
         }
     }
 
+    // Método para mostrar a mão do jogador
     fun mostrarMao() {
         println("Mão do jogador $nome:")
         for ((i, carta) in mao.withIndex()) {
@@ -45,6 +48,7 @@ class Jogador(nome: String) {
         }
     }
 
+    // Método para equipar um monstro com uma carta de equipamento
     fun equiparMonstro(monstroId: Int, carta: Carta) {
         if (monstroId in 1..tabuleiro.size) {
             val monstro = tabuleiro[monstroId - 1]
@@ -61,6 +65,7 @@ class Jogador(nome: String) {
         }
     }
 
+    // Método para descartar uma carta da mão
     fun descartarCarta(cartaId: Int) {
         if (cartaId in 1..mao.size) {
             mao.removeAt(cartaId - 1)
@@ -69,6 +74,7 @@ class Jogador(nome: String) {
         }
     }
 
+    // Método para alterar o estado de um monstro (ataque/defesa)
     fun alterarEstadoMonstro(monstroId: Int, novoEstado: String) {
         if (monstroId in 1..tabuleiro.size) {
             val monstro = tabuleiro[monstroId - 1]
@@ -78,6 +84,7 @@ class Jogador(nome: String) {
         }
     }
 
+    // Método para mostrar o tabuleiro do jogador
     fun mostrarTabuleiro() {
         println("Tabuleiro do jogador $nome:")
         for ((i, monstro) in tabuleiro.withIndex()) {
@@ -85,6 +92,7 @@ class Jogador(nome: String) {
         }
     }
 
+    // Método para realizar um ataque contra o oponente
     fun atacarOponente(oponente: Jogador, monstroId: Int, alvoId: Int) {
         if (monstroId in 1..tabuleiro.size && alvoId in 1..oponente.tabuleiro.size) {
             val monstro = tabuleiro[monstroId - 1]
@@ -101,6 +109,7 @@ class Jogador(nome: String) {
         }
     }
 
+    // Verifica se o jogador tem pelo menos um monstro no tabuleiro
     fun temMonstro(): Boolean {
         return tabuleiro.isNotEmpty()
     }
